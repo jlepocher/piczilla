@@ -2,8 +2,8 @@ import 'package:get_it/get_it.dart';
 import 'package:piczilla/common/data/paginated_data_model.dart';
 import 'package:piczilla/features/favourites/data/favourite_image_data_model.dart';
 import 'package:piczilla/features/favourites/data/favourites_data_provider.dart';
-import 'package:piczilla/features/images/data/image_data_model.dart';
 import 'package:piczilla/features/images/data/image_data_provider.dart';
+import 'package:piczilla/features/images/domain/image_details_model.dart';
 import 'package:piczilla/features/images/domain/image_model.dart';
 
 class ImageRepository {
@@ -26,9 +26,9 @@ class ImageRepository {
     );
   }
 
-  Future<ImageDataModel> fetchImageDetails({required int imageId}) async {
+  Future<ImageDetailsModel> fetchImageDetails({required int imageId}) async {
     final data = await _imageDataProvider.fetchImageDetails(imageId: imageId);
-    return data;
+    return ImageDetailsModel.fromImageDataModel(data);
   }
 
   Future<List<ImageModel>> fetchFavouriteImages() async {

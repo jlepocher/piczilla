@@ -19,9 +19,10 @@ class ImageDetailsPageCubit extends Cubit<ImageDetailsPageState> {
     emit(
       ImageDetailsPageState.loaded(
         imageId: imageDetails.id,
-        imageUrl: imageDetails.src.large,
+        imageUrl: imageDetails.url,
         photographer: imageDetails.photographer,
-        description: imageDetails.alt,
+        description: imageDetails.description,
+        shareableUrl: imageDetails.shareableUrl,
       ),
     );
   }

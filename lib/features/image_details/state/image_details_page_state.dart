@@ -11,5 +11,6 @@ class ImageDetailsPageState with _$ImageDetailsPageState {
     required String imageUrl,
     required String? photographer,
     required String? description,
+    required String shareableUrl,
   }) = ImageDetailsPageLoaded;
 }

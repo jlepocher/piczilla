@@ -20,7 +20,7 @@ mixin _$ImageDetailsPageState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(int imageId, String imageUrl,
-            String? photographer, String? description)
+            String? photographer, String? description, String shareableUrl)
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$ImageDetailsPageState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(int imageId, String imageUrl, String? photographer,
-            String? description)?
+            String? description, String shareableUrl)?
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$ImageDetailsPageState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(int imageId, String imageUrl, String? photographer,
-            String? description)?
+            String? description, String shareableUrl)?
         loaded,
     required TResult orElse(),
   }) =>
@@ -131,7 +131,7 @@ class _$ImageDetailsPageLoadingImpl implements ImageDetailsPageLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(int imageId, String imageUrl,
-            String? photographer, String? description)
+            String? photographer, String? description, String shareableUrl)
         loaded,
   }) {
     return loading();
@@ -142,7 +142,7 @@ class _$ImageDetailsPageLoadingImpl implements ImageDetailsPageLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(int imageId, String imageUrl, String? photographer,
-            String? description)?
+            String? description, String shareableUrl)?
         loaded,
   }) {
     return loading?.call();
@@ -153,7 +153,7 @@ class _$ImageDetailsPageLoadingImpl implements ImageDetailsPageLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(int imageId, String imageUrl, String? photographer,
-            String? description)?
+            String? description, String shareableUrl)?
         loaded,
     required TResult orElse(),
   }) {
@@ -210,7 +210,8 @@ abstract class _$$ImageDetailsPageLoadedImplCopyWith<$Res> {
       {int imageId,
       String imageUrl,
       String? photographer,
-      String? description});
+      String? description,
+      String shareableUrl});
 }
 
 /// @nodoc
@@ -232,6 +233,7 @@ class __$$ImageDetailsPageLoadedImplCopyWithImpl<$Res>
     Object? imageUrl = null,
     Object? photographer = freezed,
     Object? description = freezed,
+    Object? shareableUrl = null,
   }) {
     return _then(_$ImageDetailsPageLoadedImpl(
       imageId: null == imageId
@@ -250,6 +252,10 @@ class __$$ImageDetailsPageLoadedImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      shareableUrl: null == shareableUrl
+          ? _value.shareableUrl
+          : shareableUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -261,7 +267,8 @@ class _$ImageDetailsPageLoadedImpl implements ImageDetailsPageLoaded {
       {required this.imageId,
       required this.imageUrl,
       required this.photographer,
-      required this.description});
+      required this.description,
+      required this.shareableUrl});
 
   @override
   final int imageId;
@@ -271,10 +278,12 @@ class _$ImageDetailsPageLoadedImpl implements ImageDetailsPageLoaded {
   final String? photographer;
   @override
   final String? description;
+  @override
+  final String shareableUrl;
 
   @override
   String toString() {
-    return 'ImageDetailsPageState.loaded(imageId: $imageId, imageUrl: $imageUrl, photographer: $photographer, description: $description)';
+    return 'ImageDetailsPageState.loaded(imageId: $imageId, imageUrl: $imageUrl, photographer: $photographer, description: $description, shareableUrl: $shareableUrl)';
   }
 
   @override
@@ -288,12 +297,14 @@ class _$ImageDetailsPageLoadedImpl implements ImageDetailsPageLoaded {
             (identical(other.photographer, photographer) ||
                 other.photographer == photographer) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.shareableUrl, shareableUrl) ||
+                other.shareableUrl == shareableUrl));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, imageId, imageUrl, photographer, description);
+  int get hashCode => Object.hash(
+      runtimeType, imageId, imageUrl, photographer, description, shareableUrl);
 
   /// Create a copy of ImageDetailsPageState
   /// with the given fields replaced by the non-null parameter values.
@@ -309,10 +320,10 @@ class _$ImageDetailsPageLoadedImpl implements ImageDetailsPageLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(int imageId, String imageUrl,
-            String? photographer, String? description)
+            String? photographer, String? description, String shareableUrl)
         loaded,
   }) {
-    return loaded(imageId, imageUrl, photographer, description);
+    return loaded(imageId, imageUrl, photographer, description, shareableUrl);
   }
 
   @override
@@ -320,10 +331,11 @@ class _$ImageDetailsPageLoadedImpl implements ImageDetailsPageLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(int imageId, String imageUrl, String? photographer,
-            String? description)?
+            String? description, String shareableUrl)?
         loaded,
   }) {
-    return loaded?.call(imageId, imageUrl, photographer, description);
+    return loaded?.call(
+        imageId, imageUrl, photographer, description, shareableUrl);
   }
 
   @override
@@ -331,12 +343,12 @@ class _$ImageDetailsPageLoadedImpl implements ImageDetailsPageLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(int imageId, String imageUrl, String? photographer,
-            String? description)?
+            String? description, String shareableUrl)?
         loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(imageId, imageUrl, photographer, description);
+      return loaded(imageId, imageUrl, photographer, description, shareableUrl);
     }
     return orElse();
   }
@@ -378,12 +390,14 @@ abstract class ImageDetailsPageLoaded implements ImageDetailsPageState {
       {required final int imageId,
       required final String imageUrl,
       required final String? photographer,
-      required final String? description}) = _$ImageDetailsPageLoadedImpl;
+      required final String? description,
+      required final String shareableUrl}) = _$ImageDetailsPageLoadedImpl;
 
   int get imageId;
   String get imageUrl;
   String? get photographer;
   String? get description;
+  String get shareableUrl;
 
   /// Create a copy of ImageDetailsPageState
   /// with the given fields replaced by the non-null parameter values.
