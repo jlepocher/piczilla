@@ -4,6 +4,7 @@ import 'package:piczilla/features/favourites/presentation/favourite_button.dart'
 import 'package:piczilla/features/image_details/state/image_details_page_cubit.dart';
 import 'package:piczilla/features/image_details/state/image_details_page_state.dart';
 import 'package:piczilla/features/images/domain/image_model.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ImageDetailsPage extends StatelessWidget {
   const ImageDetailsPage({super.key});
@@ -30,6 +31,17 @@ class ImageDetailsPage extends StatelessWidget {
                       id: loadedState.imageId,
                       url: loadedState.imageUrl,
                     ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.share),
+                    onPressed: () {
+                      // NOTE This was a last minute addition, and could be improved to
+                      //      download the image locally, share it, and delete the temp image from the disk.
+                      Share.share(
+                        loadedState.shareableUrl,
+                        subject: 'Check out this image!',
+                      );
+                    },
                   ),
                 ],
               ),
