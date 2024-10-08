@@ -1,0 +1,44 @@
+{
+    "Freezed Union Class": {
+        "prefix": "freezed_union",
+        "body": [
+            "import 'package:freezed_annotation/freezed_annotation.dart';",
+            "",
+            "part '${TM_FILENAME_BASE}.freezed.dart';",
+            "",
+            "@freezed",
+            "class ${1:Union} with _$${1:Union}{",
+            "  const factory ${1:Union}.${2}(${3}) = ${2/(.*)/${1:/capitalize}/}${1:Union};",
+            "}"
+        ],
+        "description": "Freezed Union Class"
+    },
+    "Freezed Union Class (States)": {
+        "prefix": "freezed_union_states",
+        "body": [
+            "import 'package:freezed_annotation/freezed_annotation.dart';",
+            "",
+            "part '${TM_FILENAME_BASE}.freezed.dart';",
+            "",
+            "@freezed",
+            "class ${1:Union}State with _$${1:Union}State{",
+            "  const factory ${1:Union}State.${2}(${3}) = ${1:Union}${2/(.*)/${1:/capitalize}/}State;",
+            "}"
+        ],
+        "description": "Freezed Union Class (States)"
+    },
+    "Freezed Data Class": {
+        "prefix": "freezed_data",
+        "body": [
+            "import 'package:freezed_annotation/freezed_annotation.dart';",
+            "",
+            "part '${TM_FILENAME_BASE}.freezed.dart';",
+            "",
+            "@freezed",
+            "class ${1:ClassName} with _$${1:ClassName}{",
+            "  const factory ${1:ClassName}(${2}) = _${1:ClassName};",
+            "}"
+        ],
+        "description": "Freezed Data Class"
+    },
+}
