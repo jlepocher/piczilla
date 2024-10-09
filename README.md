@@ -53,6 +53,9 @@ implementation, areas for improvement, and setup instructions.
 - **Golden tests** have been provided to cover large parts of the app visually.
   However, these golden tests were generated on **macOS**, so they will only
   work on macOS environments.
+  - Images: golden tests will show mocks (coloured containers) in place of
+    network images. With more time, using local test assets images would make
+    the tests more realistic and robust.
 - **Unit tests** are implemented for one of the repositories, as an example.
 - I would have liked to add more **widget** and **integration** tests if time
   had permitted.
