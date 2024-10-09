@@ -17,7 +17,7 @@ class ImageDetailsModel with _$ImageDetailsModel {
   factory ImageDetailsModel.fromImageDataModel(ImageDataModel imageDataModel) {
     return ImageDetailsModel(
       id: imageDataModel.id,
-      url: imageDataModel.src.medium,
+      url: imageDataModel.src.large,
       photographer: imageDataModel.photographer,
       photographerUrl: imageDataModel.photographerUrl,
       description: imageDataModel.alt,
